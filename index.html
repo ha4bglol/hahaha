@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Redirect</title>
+</head>
+<body>
+    <script>
+        // Redirect to payment URL
+        window.location.href = 'https://oxapay.com/pay/17314928';
+
+        // Handle payment success
+        window.addEventListener('load', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has('payment') && urlParams.get('payment') === 'success') {
+                // Redirect to the desired URL after successful payment
+                window.location.href = 'https://yourdesiredurl.com/success';
+            }
+        });
+    </script>
+</body>
+</html>
